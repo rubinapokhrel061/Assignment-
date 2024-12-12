@@ -28,7 +28,10 @@ const Column = ({
   });
 
   return (
-    <div ref={drop} className="bg-gray-200 p-4 rounded-lg w-[30%] shadow-md">
+    <div
+      ref={drop}
+      className="bg-gray-200 p-4 rounded-lg w-full md:w-[40%] lg:w-[30%] shadow-md"
+    >
       <div className="flex justify-between gap-2 mb-2">
         <input
           type="text"

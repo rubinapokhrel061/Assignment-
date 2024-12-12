@@ -161,9 +161,9 @@ const Board = () => {
   return (
     <DndProvider backend={HTML5Backend}>
       <div className="container mx-auto p-6">
-        <div className="flex justify-between items-center mb-6 p-4 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 rounded-lg shadow-xl">
-          <div className="flex items-center space-x-6">
-            <div className="flex items-center space-x-2 bg-white p-2 rounded-full shadow-md max-w-xs">
+        <div className="flex flex-col md:flex-row justify-between items-center mb-6 p-4 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 rounded-lg shadow-xl">
+          <div className="flex items-center space-x-6 w-full lg:w-auto">
+            <div className="flex items-center space-x-2 bg-white p-2 rounded-full shadow-md max-w-xs w-full">
               <input
                 type="text"
                 placeholder="Search tasks"
@@ -175,29 +175,31 @@ const Board = () => {
             </div>
           </div>
 
-          <div className="flex items-center space-x-4">
+          <div className="flex flex-col md:flex-row gap-2 items-center space-x-4 mt-4 lg:mt-0">
             <button
               onClick={addColumn}
-              className="flex items-center bg-blue-600 text-white py-2 px-4 rounded-full shadow-lg hover:bg-blue-700 transition duration-300"
+              className="flex items-center  bg-blue-600 text-white py-2 px-4 rounded-full shadow-lg hover:bg-blue-700 transition duration-300"
             >
               <FaPlus className="mr-2" /> Add Column
             </button>
-            <button
-              onClick={undo}
-              className="flex items-center bg-green-600 text-white py-2 px-4 rounded-full shadow-lg hover:bg-green-700 transition duration-300"
-            >
-              <FaUndo className="mr-2" /> Undo
-            </button>
-            <button
-              onClick={redo}
-              className="flex items-center bg-yellow-600 text-white py-2 px-4 rounded-full shadow-lg hover:bg-yellow-700 transition duration-300"
-            >
-              <FaRedo className="mr-2" /> Redo
-            </button>
+            <div className="flex gap-3">
+              <button
+                onClick={undo}
+                className="flex items-center bg-green-600 text-white py-2 px-4 rounded-full shadow-lg hover:bg-green-700 transition duration-300"
+              >
+                <FaUndo className="mr-2" /> Undo
+              </button>
+              <button
+                onClick={redo}
+                className="flex items-center bg-yellow-600 text-white py-2 px-4 rounded-full shadow-lg hover:bg-yellow-700 transition duration-300"
+              >
+                <FaRedo className="mr-2" /> Redo
+              </button>
+            </div>
           </div>
         </div>
 
-        <div className="flex gap-6 justify-around flex-wrap">
+        <div className="flex flex-col md:flex-row items-center gap-6 justify-center flex-wrap md:justify-start">
           {columns.map((column) => (
             <Column
               key={column.id}

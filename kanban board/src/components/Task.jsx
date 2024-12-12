@@ -42,19 +42,21 @@ const Task = ({ task, deleteTask, editTask, columnId }) => {
     >
       <div className="flex justify-between">
         {isEditing ? (
-          <div className="flex flex-1 gap-2">
+          <div className="">
             <input
               type="text"
               value={editedContent}
               onChange={handleChange}
               className="flex-1 border p-2 rounded-md"
             />
-            <button onClick={handleSave} className="text-green-500 ml-2">
-              <FaEdit />
-            </button>
-            <button onClick={handleCancel} className="text-gray-500 ml-2">
-              Cancel
-            </button>
+            <div className="pt-1 flex gap-4">
+              <button onClick={handleSave} className="text-green-500 ml-2">
+                <FaEdit />
+              </button>
+              <button onClick={handleCancel} className="text-red-500 ml-2">
+                Cancel
+              </button>
+            </div>
           </div>
         ) : (
           <div className="flex flex-1 gap-2 justify-between">
